@@ -1,7 +1,7 @@
 import telebot
 
 # Создаем второй бот
-worker_bot = telebot.TeleBot('5849840132:AAHpp7xjRYhhmB4HwZArZCpJ6_9BMEJpLJY')
+worker_bot = telebot.TeleBot('6817773118:AAEZme_6IpKdWIU8lQUUIbi31lbluPzQj3k')
 
 # Определяем обработчики команд для второго бота
 @worker_bot.message_handler(commands=['start'])
