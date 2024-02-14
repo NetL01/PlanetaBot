@@ -1,7 +1,7 @@
 import requests
 
 def get_quickchart_plot(func_string):
-    url = f'https://quickchart.io/chart?c={{type:\'line\',data:{{labels:['x'],datasets:[{{label:\'Function\',data:['{func_string}']}}]}}}}'
+    url = f'https://quickchart.io/chart?c={{type:\'line\',data:{{labels:[],datasets:[{{label:\'Function\',data:['']}}]}}}}'
 
     response = requests.get(url)
 
