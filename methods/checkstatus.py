@@ -1,4 +1,4 @@
-from datetime import time
+import time
 from config import bot
 
 
@@ -11,5 +11,9 @@ def timetest(message):
                               msg.message_id)
     end_time = time.time()
     delay = str(end_time - start_time - 5)[:3]
-    bot.edit_message_text(f"Статус работы: стабильный. Задержка: {delay} cек.", message.chat.id,
-                          msg.message_id)
+    if float(delay) < 2:
+        bot.edit_message_text(f"Статус работы: стабильный. Задержка: {delay} cек.", message.chat.id,
+                            msg.message_id)
+    else:
+        bot.edit_message_text(f"Статус работы: оптимальный. Задержка: {delay} cек.", message.chat.id,
+                              msg.message_id)
