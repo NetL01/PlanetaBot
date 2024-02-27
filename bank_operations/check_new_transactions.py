@@ -4,7 +4,6 @@ import os
 from console_methods import console_asay_method
 
 def check():
-    print('check working')
     file_path = "C:\\Users\\razuv\\PycharmProjects\\PlanetaBot_main\\bank_operations\\transaction_ids.txt"
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
@@ -30,4 +29,5 @@ def check():
             count += 1
     if count == 0:
         #bot.send_message(-1002114955301, text=f'За прошедшее время не было новых пополнений.')
+        print('Check: no new transactions')
         pass

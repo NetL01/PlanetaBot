@@ -9,8 +9,9 @@ def create_button():
     button.add(types.InlineKeyboardButton(text="Кто это!?", callback_data="subscribe"))
     return button
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_query(call):
-    if call.data == "subscribe":
-        bot.send_message(call.message.chat.id, "Чтобы узнать имя, нужно купить подписку.")
-        get_bankAccount_quickform.give_quickpay(call.message)
+# @bot.callback_query_handler(func=lambda call: True)
+# def callback_query(call):
+#     print(f'{call.message.from_user.username} нажал кнопку.')
+#     if call.data == "subscribe":
+#         bot.send_message(call.message.chat.id, "Чтобы узнать имя, нужно купить подписку.")
+#         get_bankAccount_quickform.give_quickpay(call.message)

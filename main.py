@@ -6,7 +6,7 @@ import schedule
 import data.lists_methods.jsons_viewer
 from data.lists_methods import dump_active
 from methods import cryptomethod, encode, graphix, send_subscribe, checkstatus
-from console_methods import console_say_method, console_asay_method, console_persons_method, console_chats_method, console_send_love_method
+from console_methods import console_say_method, console_asay_method, console_persons_method, console_chats_method, console_send_love_method, console_send_news_method
 from config import bot
 from bank_operations import get_bankAccount_balance, get_bankAccount_operations, get_bankAccount_quickform, check_new_transactions, day_bank_stats
 import threading
@@ -85,6 +85,8 @@ def console_commands_realisator():
             day_bank_stats.get_daily_transactions_sum()
         if command.startswith("/send_love_pic"):
             console_send_love_method.send_love_pic(command)
+        if command.startswith("/news"):
+            console_send_news_method.news_send_command(command)
         else:
             print("unknown command.")
 
@@ -92,7 +94,7 @@ console_thread = threading.Thread(target=console_commands_realisator)
 console_thread.start()
 
 def scheduled_task():
-    schedule.every(1).minutes.do(check_new_transactions.check)
+    schedule.every(15).minutes.do(check_new_transactions.check)
     schedule.every().day.at("00:00").do(day_bank_stats.get_daily_transactions_sum)
     while True:
         schedule.run_pending()
